@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Memo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <header class="app-header">
+        <h1>Daily Memo</h1>
+        <p>日ごとのタスク・計算メモ</p>
+    </header>
+
+    <main class="container">
+
+        <!-- 日付操作 -->
+        <section class="date-section">
+
+            <div class="date-controls">
+                <button id="prevDate" class="icon-button">?</button>
+
+                <input type="date" id="datePicker">
+
+                <button id="nextDate" class="icon-button">?</button>
+
+                <button id="todayButton" class="secondary-button">
+                    今日
+                </button>
+            </div>
+
+            <div class="day-title-area">
+                <label for="dayTitle">この日のタイトル</label>
+
+                <input
+                    type="text"
+                    id="dayTitle"
+                    placeholder="例：9月30日の作業"
+                >
+            </div>
+
+        </section>
+
+
+        <!-- タスク一覧 -->
+        <section class="tasks-section">
+
+            <div class="section-header">
+                <h2>タスク</h2>
+
+                <button id="addTaskButton" class="primary-button">
+                    ＋ タスクを追加
+                </button>
+            </div>
+
+            <div id="taskList"></div>
+
+            <div id="emptyMessage" class="empty-message">
+                タスクはまだありません。
+                <br>
+                「タスクを追加」から登録してください。
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>

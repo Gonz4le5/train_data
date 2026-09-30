@@ -1,0 +1,400 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: #f5f6f8;
+    --card-color: #ffffff;
+    --border-color: #e1e4e8;
+    --text-color: #222;
+    --sub-text-color: #777;
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --danger-color: #dc2626;
+    --danger-hover: #b91c1c;
+}
+
+body {
+    margin: 0;
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Hiragino Kaku Gothic ProN",
+        "Hiragino Sans",
+        Meiryo,
+        sans-serif;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* =========================
+   アプリ全体
+========================= */
+
+.app {
+    min-height: 100vh;
+}
+
+.app-header {
+    background: #1f2937;
+    color: white;
+    padding: 24px 20px;
+}
+
+.app-header h1 {
+    max-width: 1000px;
+    margin: 0 auto 5px;
+    font-size: 24px;
+}
+
+.app-header p {
+    max-width: 1000px;
+    margin: 0 auto;
+    color: #d1d5db;
+    font-size: 14px;
+}
+
+
+/* =========================
+   コンテナ
+========================= */
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 24px 20px 60px;
+}
+
+
+/* =========================
+   日付
+========================= */
+
+.date-section {
+    background: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.date-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.date-controls input[type="date"] {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 9px 12px;
+    background: white;
+}
+
+.icon-button {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--border-color);
+    background: white;
+    border-radius: 8px;
+    font-size: 24px;
+    line-height: 1;
+}
+
+.icon-button:hover {
+    background: #f3f4f6;
+}
+
+.secondary-button {
+    border: 1px solid var(--border-color);
+    background: white;
+    border-radius: 8px;
+    padding: 9px 14px;
+}
+
+.secondary-button:hover {
+    background: #f3f4f6;
+}
+
+.day-title-area {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.day-title-area label {
+    font-size: 13px;
+    color: var(--sub-text-color);
+}
+
+.day-title-area input {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid var(--border-color);
+    padding: 8px 2px;
+    font-size: 20px;
+    outline: none;
+}
+
+.day-title-area input:focus {
+    border-bottom-color: var(--primary-color);
+}
+
+
+/* =========================
+   タスクセクション
+========================= */
+
+.tasks-section {
+    background: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.section-header h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+
+/* =========================
+   ボタン
+========================= */
+
+.primary-button {
+    border: none;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-weight: 600;
+}
+
+.primary-button:hover {
+    background: var(--primary-hover);
+}
+
+
+/* =========================
+   タスク
+========================= */
+
+.task {
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 12px;
+    background: #fff;
+}
+
+.task-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.task-number {
+    color: var(--sub-text-color);
+    font-size: 13px;
+    min-width: 30px;
+}
+
+.task-title {
+    flex: 1;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    outline: none;
+    padding: 7px 2px;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.task-title:focus {
+    border-bottom-color: var(--primary-color);
+}
+
+.delete-task-button {
+    border: none;
+    background: transparent;
+    color: var(--danger-color);
+    font-size: 14px;
+    padding: 5px;
+}
+
+.delete-task-button:hover {
+    color: var(--danger-hover);
+}
+
+
+/* =========================
+   数値入力
+========================= */
+
+.variables {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.variable {
+    display: flex;
+    align-items: center;
+}
+
+.variable input {
+    width: 100px;
+    border: 1px solid var(--border-color);
+    border-radius: 7px;
+    padding: 9px 10px;
+    text-align: right;
+}
+
+.variable input:focus {
+    outline: 2px solid rgba(37, 99, 235, 0.15);
+    border-color: var(--primary-color);
+}
+
+.multiply {
+    color: #999;
+    font-weight: bold;
+}
+
+.add-variable-button {
+    border: 1px dashed #aaa;
+    background: #fafafa;
+    border-radius: 7px;
+    padding: 8px 10px;
+    color: #555;
+}
+
+.add-variable-button:hover {
+    background: #f3f4f6;
+}
+
+
+/* =========================
+   計算結果
+========================= */
+
+.result-area {
+    margin-top: 16px;
+    padding: 12px 14px;
+    background: #f8fafc;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.formula {
+    color: #666;
+    font-size: 14px;
+    word-break: break-all;
+}
+
+.result {
+    font-size: 20px;
+    font-weight: bold;
+    color: #111827;
+    white-space: nowrap;
+}
+
+
+/* =========================
+   空状態
+========================= */
+
+.empty-message {
+    text-align: center;
+    color: var(--sub-text-color);
+    padding: 50px 20px;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   スマートフォン
+========================= */
+
+@media (max-width: 600px) {
+
+    .container {
+        padding: 12px 10px 40px;
+    }
+
+    .app-header {
+        padding: 18px 15px;
+    }
+
+    .app-header h1 {
+        font-size: 20px;
+    }
+
+    .date-section,
+    .tasks-section {
+        padding: 15px;
+    }
+
+    .date-controls {
+        flex-wrap: wrap;
+    }
+
+    .date-controls input[type="date"] {
+        flex: 1;
+        min-width: 140px;
+    }
+
+    .section-header {
+        align-items: center;
+    }
+
+    .section-header h2 {
+        font-size: 18px;
+    }
+
+    .primary-button {
+        padding: 8px 11px;
+        font-size: 13px;
+    }
+
+    .variables {
+        gap: 6px;
+    }
+
+    .variable input {
+        width: 80px;
+    }
+
+    .result-area {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .result {
+        width: 100%;
+        text-align: right;
+    }
+}
