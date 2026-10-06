@@ -682,6 +682,65 @@ function setupEvents() {
     );
 
 
+    /* 別日からタスクをコピー */
+
+    const loadFromDateButton = document.getElementById("loadFromDateButton");
+    const sourceDatePicker = document.getElementById("sourceDatePicker");
+
+    loadFromDateButton.addEventListener("click", function () {
+        // iPhoneではボタンタップで日付選択を開く
+        if (typeof sourceDatePicker.showPicker === "function") {
+            sourceDatePicker.showPicker();
+        } else {
+            sourceDatePicker.click();
+        }
+    });
+
+    sourceDatePicker.addEventListener("change", async function () {
+        const sourceDate = sourceDatePicker.value;
+
+        if (!sourceDate || sourceDate === currentDate) {
+            sourceDatePicker.value = "";
+            if (sourceDate === currentDate) {
+                alert("現在表示している日と同じ日です。");
+            }
+            return;
+        }
+
+        const sourceDay = await getDay(sourceDate);
+
+        if (!sourceDay || !sourceDay.tasks || sourceDay.tasks.length === 0) {
+            alert(`${sourceDate}には登録されたタスクがありません。`);
+            sourceDatePicker.value = "";
+            return;
+        }
+
+        if (currentDayData.tasks && currentDayData.tasks.length > 0) {
+            const confirmed = confirm(
+                `${sourceDate}のタスク ${sourceDay.tasks.length}件を、現在の日付のタスクと入れ替えますか？\n\n現在のタスクは上書きされます。`
+            );
+
+            if (!confirmed) {
+                sourceDatePicker.value = "";
+                return;
+            }
+        }
+
+        // 元日のデータを壊さないよう、タスクはディープコピーしてIDを再発行
+        currentDayData.tasks = sourceDay.tasks.map(task => ({
+            ...task,
+            id: crypto.randomUUID(),
+            variables: Array.isArray(task.variables)
+                ? [...task.variables]
+                : [1, 1]
+        }));
+
+        await saveCurrentDay();
+        renderTasks();
+        sourceDatePicker.value = "";
+    });
+
+
     /* 日タイトル */
 
     document.getElementById(
