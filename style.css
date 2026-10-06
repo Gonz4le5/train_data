@@ -431,3 +431,29 @@ button {
     .result { font-size: 15px; }
     .empty-message { padding: 28px 10px; font-size: 12px; }
 }
+
+
+/* 別日コピー用の日付入力：ボタン操作から開くため通常は非表示 */
+.source-date-picker {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+@media (max-width: 600px) {
+    .date-controls {
+        flex-wrap: wrap;
+    }
+    #loadFromDateButton {
+        flex: 1 1 auto;
+        min-width: 0;
+        padding: 6px 8px;
+        font-size: 12px;
+    }
+}
