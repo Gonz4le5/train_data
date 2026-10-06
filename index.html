@@ -12,8 +12,8 @@
 <div class="app">
 
     <header class="app-header">
-        <h1>Muscle Train MEMO</h1>
-        <p>種目。回数。総負荷。</p>
+        <h1>Daily Memo</h1>
+        <p>日ごとのタスク・計算メモ</p>
     </header>
 
     <main class="container">
@@ -31,6 +31,11 @@
                 <button id="todayButton" class="secondary-button">
                     今日
                 </button>
+
+                <button id="loadFromDateButton" class="secondary-button">
+                    別日からコピー
+                </button>
+                <input type="date" id="sourceDatePicker" class="source-date-picker" aria-label="コピー元の日付">
             </div>
 
             <div class="day-title-area">
@@ -50,19 +55,19 @@
         <section class="tasks-section">
 
             <div class="section-header">
-                <h2>種目</h2>
+                <h2>タスク</h2>
 
                 <button id="addTaskButton" class="primary-button">
-                    ＋ 種目を追加
+                    ＋ タスクを追加
                 </button>
             </div>
 
             <div id="taskList"></div>
 
             <div id="emptyMessage" class="empty-message">
-                まだありません。
+                タスクはまだありません。
                 <br>
-                「種目を追加」から登録してください。
+                「タスクを追加」から登録してください。
             </div>
 
         </section>
