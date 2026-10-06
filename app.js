@@ -551,29 +551,23 @@ function createTaskElement(task, index) {
 ========================================================= */
 
 function calculateProduct(variables) {
-
-    if (
-        !variables ||
-        variables.length === 0
-    ) {
+    if (!variables || variables.length === 0) {
         return 0;
     }
 
-    return variables.reduce(
-        (total, value) => {
+    const nums = variables
+        .map(value => Number(value))
+        .filter(Number.isFinite);
 
-            const number =
-                Number(value);
+    if (nums.length === 0) return 0;
+    if (nums.length === 1) return nums[0];
+    if (nums.length === 2) return nums[0] * nums[1];
 
-            if (!Number.isFinite(number)) {
-                return total;
-            }
-
-            return total * number;
-
-        },
-        1
-    );
+    // 3個目は乗算値ではなく「繰り返し回数」。
+    // 10 × 3 3 → 10 × 3 + 10 × 3 = 60
+    const base = nums[0] * nums[1];
+    const repetitions = Math.max(1, nums[2] - 1);
+    return base * repetitions;
 }
 
 
@@ -597,8 +591,14 @@ function updateTaskResult(
         );
 
 
-    formulaElement.textContent =
-        variables.join(" × ");
+    if (variables.length >= 3) {
+        const repetitions = Math.max(1, Number(variables[2]) - 1);
+        formulaElement.textContent =
+            `${variables[0]} × ${variables[1]} × ${repetitions}回`;
+    } else {
+        formulaElement.textContent =
+            variables.join(" × ");
+    }
 
 
     resultElement.textContent =

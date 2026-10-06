@@ -398,3 +398,36 @@ button {
         text-align: right;
     }
 }
+
+
+/* iPhone 16向けコンパクト表示 */
+@media (max-width: 600px) {
+    .app-header { padding: 12px; }
+    .app-header h1 { font-size: 16px; }
+    .app-header p { font-size: 11px; }
+    .container { padding: 8px 7px 28px; }
+    .date-section, .tasks-section { padding: 10px; border-radius: 9px; margin-bottom: 10px; }
+    .date-controls { gap: 5px; margin-bottom: 10px; }
+    .icon-button { width: 32px; height: 32px; font-size: 18px; }
+    .date-controls input[type="date"] { min-width: 0; padding: 6px 7px; font-size: 13px; }
+    .secondary-button { padding: 6px 9px; font-size: 12px; }
+    .day-title-area { gap: 4px; }
+    .day-title-area label { font-size: 11px; }
+    .day-title-area input { padding: 5px 2px; font-size: 15px; }
+    .section-header { margin-bottom: 9px; }
+    .section-header h2 { font-size: 15px; }
+    .primary-button { padding: 6px 8px; font-size: 11px; }
+    .task { padding: 9px; margin-bottom: 7px; border-radius: 8px; }
+    .task-header { gap: 6px; margin-bottom: 8px; }
+    .task-number { font-size: 11px; min-width: 22px; }
+    .task-title { padding: 4px 2px; font-size: 14px; }
+    .delete-task-button { font-size: 11px; padding: 3px; }
+    .variables { gap: 4px; }
+    .variable input { width: 58px; padding: 6px; font-size: 13px; }
+    .multiply { font-size: 12px; }
+    .add-variable-button { padding: 5px 7px; font-size: 11px; }
+    .result-area { margin-top: 9px; padding: 7px 9px; gap: 5px; }
+    .formula { font-size: 11px; }
+    .result { font-size: 15px; }
+    .empty-message { padding: 28px 10px; font-size: 12px; }
+}
